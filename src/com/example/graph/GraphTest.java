@@ -7,7 +7,7 @@ public class GraphTest {
 		Graph gh = new Graph(6).initGraph(7);
 		//System.out.println(GraphHandler.avgDegree(gh));
 		//System.out.println(gh.toString());
-		DepthFirstSearch dfs = new DepthFirstSearch(gh,0);
+		DepthFirstSearch dfs = new DepthFirstSearch();
 	}
 
 }
