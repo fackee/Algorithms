@@ -29,7 +29,13 @@ public class LinkedQueue<Item>{
 	}
 	public Item dequeue(){
 		Item item = head.item;
-		head = head.next;
+		if(head == first){
+			head = null;
+			first = null;
+		}else{
+			head = head.next;
+			N--;
+		}
 		N--;
 		return item;
 	}

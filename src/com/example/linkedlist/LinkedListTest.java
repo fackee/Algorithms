@@ -17,7 +17,7 @@ public class LinkedListTest {
 		//while(ll.hasNext()){
 		//	System.out.println(ll.next());
 		//}
-		DoublyLinked<String> dl = new DoublyLinked();
+		/*DoublyLinked<String> dl = new DoublyLinked();
 		dl.insertAtPrevious("2");
 		dl.insertAtPrevious("1");
 		dl.insertNodeAtNext("3");
@@ -27,6 +27,18 @@ public class LinkedListTest {
 		System.out.println("size:"+dl.size());
 		while(dl.hasPrevious()){
 			System.out.println(dl.previous());
+		}*/
+		LinkedQueue<Integer> queue = new LinkedQueue<>();
+		queue.enqueue(0);
+		queue.dequeue();
+		queue.enqueue(2);
+		queue.enqueue(1);
+		queue.enqueue(5);
+		queue.dequeue();
+		queue.enqueue(3);
+		queue.enqueue(4);
+		while(!queue.isEmpty()){
+			System.out.print(queue.dequeue());
 		}
 	}
 
