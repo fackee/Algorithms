@@ -2,26 +2,33 @@ package com.example.graph;
 
 import java.util.Stack;
 
-public class DepthFirstSearch {
-	private boolean marked[];
-	private int[] edgeTo;
-	private final int s;
-	private int count = 0;
+public class DirectDFS {
 	
-	public DepthFirstSearch(Graph G,int s){
-		marked = new boolean[G.getVertex()];
+	private boolean[] marked;
+	private int count = 0;
+	private int[] edgeTo;
+	private int s;
+	
+	public DirectDFS(Digraph dg,int s){
+		marked = new boolean[dg.Edge()];
+		edgeTo = new int[dg.Edge()];
+		dfs(dg,s);
 		this.s = s;
-		edgeTo = new int[G.getVertex()];
-		dfs(G,s);
 	}
 	
-	private void dfs(Graph G,int v){
+	public DirectDFS(Digraph dg,Iterable<Integer> source){
+		marked = new boolean[dg.Edge()];
+		for(int w : source){
+			dfs(dg,w);
+		}
+	}
+	
+	private void dfs(Digraph dg,int v){
 		marked[v] = true;
-		count++; 
-		for(int w : G.adj(v)){
+		for(int w : dg.adj(v)){
 			if(!marked[w]){
 				edgeTo[w] = v;
-				dfs(G,w);
+				dfs(dg,w);
 			}
 		}
 	}
@@ -33,7 +40,7 @@ public class DepthFirstSearch {
 	public int count(){
 		return count;
 	}
-	
+
 	public Iterable<Integer> pathTo(int v){
 		if(!hashPathTo(v)){
 			return null;
@@ -45,5 +52,5 @@ public class DepthFirstSearch {
 		stack.push(s);
 		return stack;
 	}
-	
+
 }
