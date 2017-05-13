@@ -11,10 +11,21 @@ public class GraphTest {
 		BreathFirstSearch bfs = new BreathFirstSearch(gh, 0);
 		Iterator<Integer> it = bfs.pathTo(3).iterator();
 		while(it.hasNext()){
-			System.out.print(it.next()+"°˙");
+			System.out.print(it.next()+"‚Üê");
 		}
 		CC cc = new CC(gh);*/
-		Digraph dg = new Digraph(4).init(5);
-		System.out.print(dg.toString());
+		Graph g = new Digraph(4).init(5);
+		BreathFirstSearch fs = new BreathFirstSearch(g,0);
+		DepthFirstSearch dfs = new DepthFirstSearch(g,0);
+		//DirectBFS bfs = new DirectBFS(dg,0);
+		//Iterator it = dfs.pathTo(3).iterator();
+		//while(it.hasNext()){
+		//	System.out.print(it.next()+"‚Üê");
+		//}
+		System.out.print("\n");
+		Iterator bit = dfs.pathTo(3).iterator();
+		while(bit.hasNext()){
+			System.out.print(bit.next()+"‚Üê");
+		}
 	}
 }

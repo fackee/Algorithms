@@ -6,7 +6,7 @@ public class CC {
 	private int[] id;
 	private int count = 0;
 	
-	public CC(Graph G){
+	public CC(Undigraph G){
 		marked = new boolean[G.getVertex()];
 		id = new int[G.getVertex()];
 		for(int s = 0; s < G.getVertex();s++){
@@ -18,7 +18,7 @@ public class CC {
 		}
 	}
 	
-	private void dfs(Graph G,int v){
+	private void dfs(Undigraph G,int v){
 		marked[v] = true;
 		id[v] = count;
 		for(int w : G.adj(v)){

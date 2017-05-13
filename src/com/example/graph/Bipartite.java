@@ -6,12 +6,12 @@ public class Bipartite {
 	private boolean[] color;
 	private boolean isBipartite = true;
 	
-	public Bipartite(Graph G){
+	public Bipartite(Undigraph G){
 		marked = new boolean[G.getVertex()];
 		color = new boolean[G.getVertex()];
 	}
 	
-	private void dfs(Graph G,int v){
+	private void dfs(Undigraph G,int v){
 		marked[v] = true;
 		for(int w : G.adj(v)){
 			if(!marked[w]){

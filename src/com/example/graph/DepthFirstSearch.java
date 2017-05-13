@@ -5,7 +5,7 @@ import java.util.Stack;
 public class DepthFirstSearch {
 	private boolean marked[];
 	private int[] edgeTo;
-	private final int s;
+	private int s;
 	private int count = 0;
 	
 	public DepthFirstSearch(Graph G,int s){
@@ -13,6 +13,13 @@ public class DepthFirstSearch {
 		this.s = s;
 		edgeTo = new int[G.getVertex()];
 		dfs(G,s);
+	}
+	
+	public DepthFirstSearch(Graph g,Iterable<Integer> source){
+		marked = new boolean[g.getVertex()];
+		for(int w : source){
+			dfs(g,w);
+		}
 	}
 	
 	private void dfs(Graph G,int v){

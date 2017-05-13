@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Digraph {
+public class Digraph implements Graph{
 	
 	private final int Vertext;
 	private int Edge;
@@ -16,8 +16,8 @@ public class Digraph {
 			adj[i] = new HashSet<>();
 		}
 	}
-	
-	public Digraph init(int Edge){
+	@Override
+	public Graph init(int Edge){
 		this.Edge = Edge;
 		Scanner sc = new Scanner(System.in);
 		for(int i=0;i<Edge;i++){
@@ -28,19 +28,23 @@ public class Digraph {
 		return this;
 	}
 	
-	public int Vertex(){
+	@Override
+	public int getVertex(){
 		return Vertext;
 	}
 	
-	public int Edge(){
+	@Override
+	public int getEdge(){
 		return Edge;
 	}
 	
+	@Override
 	public void addEdge(int v,int w){
 		Edge++;
 		adj[v].add(w);
 	}
 	
+	@Override
 	public Iterable<Integer> adj(int v){
 		return adj[v];
 	}
@@ -54,13 +58,13 @@ public class Digraph {
 		}
 		return R;
 	}
-	
+	@Override
 	public String toString(){
 		String graph= "";
 		for(int v=0;v<Vertext;v++){
 			graph += v;
 			for(int w : adj[v]){
-				graph += "¡ú"+w;
+				graph += "ï¿½ï¿½"+w;
 			}
 			graph += "\n";
 		}
