@@ -23,7 +23,7 @@ public class GraphTest {
 		//	System.out.print(it.next()+"鈫�");
 		//}
 		//System.out.print("\n");
-		Iterator it = new DirectedCycle((Digraph)g).cycle().iterator();
+		Iterator it = new DepthFirstOrder((Digraph)g).reservePost().iterator();
 		while(it.hasNext()){
 			System.out.print(it.next()+"←");
 		}

@@ -1,7 +1,8 @@
 package com.example.linkedlist;
 
+import java.util.Iterator;
 
-public class LinkedQueue<Item>{
+public class LinkedQueue<Item> implements Iterable{
 	private Node head;
 	private Node first;
 	private int N = 0;
@@ -38,6 +39,26 @@ public class LinkedQueue<Item>{
 		}
 		N--;
 		return item;
+	}
+	@Override
+	public Iterator iterator() {
+		
+		return new QueueIterator();
+	}
+	private class QueueIterator implements Iterator{
+
+		@Override
+		public boolean hasNext() {
+			return head!=null;
+		}
+
+		@Override
+		public Object next() {
+			Item item = head.item;
+			head = head.next;
+			return item;
+		}
+		
 	}
 
 }
