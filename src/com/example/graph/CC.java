@@ -14,7 +14,6 @@ public class CC {
 				count++;
 				dfs(G,s);
 			}
-			System.out.print("id-"+s+":"+id[s]);
 		}
 	}
 	
