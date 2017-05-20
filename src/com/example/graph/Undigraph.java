@@ -4,10 +4,9 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Undigraph implements Graph{
+public class Undigraph implements Graph<Integer>{
 	private int Vertex;
-	private int Edge;
-	private int count = 0;
+	private int Edge = 0;
 	private Set<Integer>[] adj;
 	public Undigraph(int Vertex){
 		this.Vertex = Vertex;
@@ -32,7 +31,7 @@ public class Undigraph implements Graph{
 	public void addEdge(int v,int w){
 		adj[v].add(w);
 		adj[w].add(v);
-		count++;
+		Edge++;
 	}
 	@Override
 	public int getVertex(){

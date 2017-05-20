@@ -17,7 +17,7 @@ public class BreathFirstSearch {
 		bfs(G,s);
 	}
 	//广度优先搜索
-	private void bfs(Graph G,int s){
+	private void bfs(Graph<Integer> G,int s){
 		ArrayQueue<Integer> queue = new ArrayQueue<>();
 		marked[s] = true;
 		queue.enqueue(s);

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class Digraph implements Graph{
+public class Digraph implements Graph<Integer>{
 	
 	private final int Vertext;
 	private int Edge;

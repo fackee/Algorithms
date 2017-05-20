@@ -22,7 +22,7 @@ public class DepthFirstSearch {
 		}
 	}
 	
-	private void dfs(Graph G,int v){
+	private void dfs(Graph<Integer> G,int v){
 		marked[v] = true;
 		count++; 
 		for(int w : G.adj(v)){
