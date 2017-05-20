@@ -9,7 +9,6 @@ public class Edge implements Comparable<Edge>{
 	private final double weight;
 	
 	public Edge(){
-		System.out.print("please input edge's vetex and weight:");
 		Scanner sc = new Scanner(System.in);
 		this.v= sc.nextInt();
 		this.w= sc.nextInt();
@@ -28,9 +27,9 @@ public class Edge implements Comparable<Edge>{
 		else if(vertex == w) return v;
 		else throw new RuntimeException("Inconsistant Edge");
 	}
-	public String toString(){
+	/*public String toString(){
 		return String.format("%d-%d %0.2f", v,w,weight);
-	}
+	}*/
 	
 	@Override
 	public int compareTo(Edge that) {

@@ -1,7 +1,5 @@
 package com.example.graph;
 
-import java.util.Iterator;
-
 public class GraphTest {
 
 	public static void main(String[] args) {
@@ -27,12 +25,29 @@ public class GraphTest {
 		while(it.hasNext()){
 			System.out.print(it.next()+"←");
 		}*/
-		EdgeWeightedGraph ewg = new EdgeWeightedGraph(8).init(16);
+		EdgeWeightedGraph ewg = new EdgeWeightedGraph(4).init(4);
 		/*Iterator it = ewg.adj().iterator();
 		while(it.hasNext()){
 			Edge e = (Edge) it.next();
 			System.out.println(e.either()+","+e.other(e.either())+","+e.weight());
 		}*/
-		System.out.print(new LazyPrimMST(ewg).weight());
+		new PrimMST(ewg).showPath();
+		System.out.print(new PrimMST(ewg).weight());
 	}
 }
+/*0 7 0.16
+0 2 0.26
+0 4 0.38
+0 6 0.58
+1 7 0.19
+5 7 0.28
+2 7 0.34
+4 7 0.37
+1 3 0.29
+1 5 0.32
+1 2 0.36
+2 3 0.17
+6 2 0.10
+3 6 0.52
+4 5 0.35
+6 4 0.93*/

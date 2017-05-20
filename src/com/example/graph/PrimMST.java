@@ -1,16 +1,16 @@
 package com.example.graph;
 
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Map;
 
 public class PrimMST {
 
 	private Edge[] edgeTo;
 	private double[] distTo;
 	private boolean[] marked;
-	private List<Double> pq;
+	private Map<Integer,Double> pq;
 	
 	public PrimMST(EdgeWeightedGraph g){
 		edgeTo = new Edge[g.getVertex()];
@@ -19,12 +19,17 @@ public class PrimMST {
 		for(int v=0;v<g.getVertex();v++){
 			distTo[v] = Double.POSITIVE_INFINITY;
 		}
-		pq = new ArrayList<Double>(g.getVertex());
-		pq.add(0, 0.0);
+		pq = new HashMap<Integer,Double>();
+		pq.put(0, 0.0);
 		while(!pq.isEmpty()){
-			double min = Collections.min(pq);
-			int vertex = pq.indexOf(min);
-			pq.remove(min);
+			double min = Collections.min(pq.values());
+			int vertex = 0;
+			for(int key : pq.keySet()){
+				if(pq.get(key) == min){
+					vertex = key;
+				}
+			}
+			pq.remove(vertex);
 			visit(g,vertex);
 		}
 	}
@@ -38,23 +43,30 @@ public class PrimMST {
 			if(e.weight() < distTo[w]){
 				edgeTo[w] = e;
 				distTo[w] = e.weight();
-				pq.add(w, distTo[w]);
+				if(pq.containsKey(w)) pq.replace(w, distTo[w]);
+				else pq.put(w, distTo[w]);
 			}
 		}
 		
 	}
 	
 	public Iterable<Double> edges(){
-		return pq;
+		return pq.values();
 	}
 	
 	public double weight(){
-		Iterator<Double> it = pq.iterator();
+		Iterator<Double> it = pq.values().iterator();
 		double weightSum = 0.00;
 		while(it.hasNext()){
 			weightSum += it.next();
 		}
 		return weightSum;
+	}
+	
+	public void showPath(){
+		for(int i=0;i<edgeTo.length;i++){
+			System.out.println(edgeTo[i].either()+"→"+edgeTo[i].other(edgeTo[i].either()));
+		}
 	}
 	
 }
