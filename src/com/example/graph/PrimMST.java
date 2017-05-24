@@ -20,6 +20,7 @@ public class PrimMST {
 			distTo[v] = Double.POSITIVE_INFINITY;
 		}
 		pq = new HashMap<Integer,Double>();
+		distTo[0] = 0.0;
 		pq.put(0, 0.0);
 		while(!pq.isEmpty()){
 			double min = Collections.min(pq.values());
@@ -55,10 +56,9 @@ public class PrimMST {
 	}
 	
 	public double weight(){
-		Iterator<Double> it = pq.values().iterator();
-		double weightSum = 0.00;
-		while(it.hasNext()){
-			weightSum += it.next();
+		double weightSum = 0;
+		for(int i=0;i<distTo.length;i++){
+			weightSum += distTo[i];
 		}
 		return weightSum;
 	}

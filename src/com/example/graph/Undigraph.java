@@ -1,6 +1,7 @@
 package com.example.graph;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -23,6 +24,14 @@ public class Undigraph implements Graph<Integer>{
 		for(int e=0;e<Edge;e++){
 			int v = sc.nextInt();
 			int w = sc.nextInt();
+			addEdge(v,w);
+		}
+		return this;
+	}
+	public Graph init(List<Edge> edges) {
+		for(int e = 0;e<edges.size();e++){
+			int v = edges.get(e).either();
+			int w = edges.get(e).other(v);
 			addEdge(v,w);
 		}
 		return this;

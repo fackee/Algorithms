@@ -25,14 +25,17 @@ public class GraphTest {
 		while(it.hasNext()){
 			System.out.print(it.next()+"←");
 		}*/
-		EdgeWeightedGraph ewg = new EdgeWeightedGraph(4).init(4);
+		
+		EdgeWeightedGraph ewg = new EdgeWeightedGraph(8).init(16);
 		/*Iterator it = ewg.adj().iterator();
 		while(it.hasNext()){
 			Edge e = (Edge) it.next();
 			System.out.println(e.either()+","+e.other(e.either())+","+e.weight());
 		}*/
-		new PrimMST(ewg).showPath();
-		System.out.print(new PrimMST(ewg).weight());
+		//new PrimMST(ewg).showPath();
+		//System.out.print(new PrimMST(ewg).weight());
+		KruskalMST km = new KruskalMST(ewg);
+		System.out.print(km.minWeight());
 	}
 }
 /*0 7 0.16

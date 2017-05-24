@@ -19,7 +19,7 @@ public class Cycle {
 		for(int w : G.adj(v)){
 			if(!marked[w]){
 				dfs(G,w,v);
-			}else if(w != v){
+			}else if(w != u){
 				hasCycle = true;
 			}
 		}
