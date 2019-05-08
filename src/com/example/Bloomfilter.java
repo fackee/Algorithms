@@ -7,7 +7,6 @@ import java.util.concurrent.Executors;
 
 /**
  * Bloomfliter 简易Demo
- * @author zhujianxin
  * @date 2018/7/13.
  */
 public class BloomFilter {
